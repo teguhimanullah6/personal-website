@@ -394,21 +394,26 @@ p {
 }
 
 .news-list {
-    border-top: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem 1.25rem;
 }
 
 .news-item {
+    position: relative;
     display: grid;
-    grid-template-columns: 150px 150px minmax(0, 1fr) 32px;
-    gap: 2rem;
-    padding-block: 2rem;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    gap: 0.7rem;
+    min-width: 0;
+    padding-bottom: 1.5rem;
     border-bottom: 1px solid var(--line);
 }
 
 .news-image {
     display: grid;
+    width: 100%;
     aspect-ratio: 4 / 3;
-    align-self: start;
     overflow: hidden;
     background: #e5eae6;
 }
@@ -440,11 +445,11 @@ p {
 
 .news-date {
     display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
+    justify-content: space-between;
+    gap: 0.5rem;
     margin: 0;
     color: var(--muted);
-    font-size: 0.76rem;
+    font-size: 0.7rem;
 }
 
 .news-date span {
@@ -455,25 +460,44 @@ p {
 }
 
 .news-copy h2 {
-    margin: 0 0 0.65rem;
+    margin: 0 0 0.5rem;
     font-family: var(--serif);
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-size: 1.35rem;
     font-weight: 500;
     line-height: 1.15;
 }
 
 .news-copy > p {
-    max-width: 680px;
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.85rem;
     color: var(--muted);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    line-height: 1.55;
+}
+
+.news-copy .text-link {
+    max-width: 100%;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    font-size: 0.76rem;
 }
 
 .news-index {
-    justify-self: end;
-    color: var(--orange);
+    position: absolute;
+    top: 2.7rem;
+    right: 0.55rem;
+    z-index: 1;
+    padding: 0.15rem 0.35rem;
+    background: var(--ink);
+    color: var(--surface);
     font-size: 0.75rem;
     font-weight: 700;
+}
+
+@media (max-width: 1100px) {
+    .news-list,
+    .news-reference-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 }
 
 .news-note {
@@ -503,24 +527,114 @@ p {
 }
 
 .news-reference-list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem 1.25rem;
     margin: 0;
     padding: 0;
-    border-top: 1px solid var(--line);
     list-style: none;
 }
 
 .news-reference-list li {
+    position: relative;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: baseline;
-    gap: 0.4rem 1.5rem;
-    padding: 0.85rem 0;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    gap: 0.7rem;
+    min-width: 0;
+    padding-bottom: 1.5rem;
     border-bottom: 1px solid var(--line);
+}
+
+.news-reference-list li:nth-child(n + 21) {
+    display: none;
+}
+
+.news-reference-list li::before {
+    display: grid;
+    aspect-ratio: 4 / 3;
+    place-items: center;
+    padding: 1rem;
+    background: var(--ink);
+    color: #fffefa;
+    content: "PRESS COVERAGE";
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.news-reference-list li:nth-child(1)::before {
+    background: #315a4b;
+    content: "WORLD PUBLIC SUMMIT";
+}
+
+.news-reference-list li:nth-child(2)::before {
+    background: #1c3e42;
+    content: "BRICS EDUCATION COUNCIL";
+}
+
+.news-reference-list li:nth-child(4)::before,
+.news-reference-list li:nth-child(11)::before {
+    background: #174b52;
+    content: "SPbPU HARMONY";
+}
+
+.news-reference-list li:nth-child(5)::before {
+    background: #405b3b;
+    content: "LENMEDIA";
+}
+
+.news-reference-list li:nth-child(6)::before {
+    background: #334858;
+    content: "PETERSBURG DIARY";
+}
+
+.news-reference-list li:nth-child(7)::before {
+    background: #6b3b32;
+    content: "SPBSSK";
+}
+
+.news-reference-list li:nth-child(8)::before,
+.news-reference-list li:nth-child(10)::before,
+.news-reference-list li:nth-child(12)::before {
+    background: #174b52;
+    content: "SPbPU";
+}
+
+.news-reference-list li:nth-child(9)::before {
+    background: #3e5548;
+    content: "ZAURAL";
+}
+
+.news-reference-list li:nth-child(13)::before {
+    background: #31475e;
+    content: "TV ZVEZDA";
+}
+
+.news-reference-list li:nth-child(16)::before {
+    background: #173c38;
+    content: "POLYTECH GLOBAL";
+}
+
+.news-reference-list li:nth-child(17)::before {
+    background: #303842;
+    content: "DZEN";
+}
+
+.news-reference-list li:nth-child(19)::before {
+    background: #525044;
+    content: "INTERMOL";
+}
+
+.news-reference-list li:nth-child(20)::before {
+    background: #35564b;
+    content: "RUSSIAN GEOGRAPHICAL SOCIETY";
 }
 
 .news-reference-list a {
     font-family: var(--serif);
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     line-height: 1.3;
 }
 
@@ -530,8 +644,28 @@ p {
 
 .news-reference-list span {
     color: var(--muted);
-    font-size: 0.72rem;
-    text-align: right;
+    font-size: 0.76rem;
+    line-height: 1.5;
+}
+
+.news-reference-list li:nth-child(3)::before {
+    background: #dce5df url("https://f34aa803-8613-44c2-aeb6-1ffc411a222c.selstorage.ru/persons/263/photo.webp") center 32% / cover no-repeat;
+    content: "";
+}
+
+.news-reference-list li:nth-child(14)::before {
+    background: #e6e9e7 url("https://images.techinsider.ru/upload/img_cache/032/03265e55a5d1e3d74e8982543499662b_ce_2000x1333x0x17_cropped_666x444.webp") center / cover no-repeat;
+    content: "";
+}
+
+.news-reference-list li:nth-child(15)::before {
+    background: #e6e9e7 url("https://www.m24.ru/b/d/nBkSUhL2h1Qkncm2Jb6BrNOp2Z3z8Zj21iDEh_fH_nKUPXuaDyXTjHou4MVO6BCVoZKf9GqVe5Q_CPawk214LyWK9G1N5ho=zbVJ37tpkvL1dCUM3Nq74A.jpg") center / cover no-repeat;
+    content: "";
+}
+
+.news-reference-list li:nth-child(18)::before {
+    background: #e6e9e7 url("https://xn----8sbnatxcctbeddbtj9c2e.xn--p1ai/files/news/2022/09/zastavka_v_socseti.jpg") center / cover no-repeat;
+    content: "";
 }
 
 .closing-note {
@@ -660,8 +794,15 @@ p {
     }
 
     .news-item {
-        grid-template-columns: 115px 110px minmax(0, 1fr) 20px;
-        gap: 1rem;
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .news-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .news-reference-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .closing-note {
@@ -729,13 +870,13 @@ p {
     }
 
     .news-item {
-        grid-template-columns: 84px minmax(0, 1fr) 20px;
-        gap: 0.8rem;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1rem;
     }
 
     .news-reference-list li {
         grid-template-columns: 1fr;
-        gap: 0.25rem;
+        gap: 0.7rem;
     }
 
     .news-reference-list span {
@@ -743,14 +884,15 @@ p {
     }
 
     .news-date {
-        grid-column: 1 / -1;
-        flex-direction: row;
-        justify-content: space-between;
+        align-items: baseline;
     }
 
-    .closing-note {
+    .news-list {
         grid-template-columns: 1fr;
-        padding-block: 1.8rem 3rem;
+    }
+
+    .news-reference-list {
+        grid-template-columns: 1fr;
     }
 
     .closing-note .text-link {
