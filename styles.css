@@ -441,6 +441,166 @@ p {
     text-underline-offset: 0.2em;
 }
 
+.cv-full-profile {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+}
+
+.cv-profile-header {
+    display: grid;
+    grid-template-columns: minmax(180px, 0.42fr) 1fr;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.cv-photo-placeholder {
+    display: grid;
+    min-height: 260px;
+    place-content: center;
+    gap: 0.4rem;
+    padding: 1.5rem;
+    border: 1px solid var(--line);
+    background: #e6e9e3;
+    color: var(--muted);
+    text-align: center;
+}
+
+.cv-photo-placeholder span {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+}
+
+.cv-photo-placeholder small {
+    font-size: 0.72rem;
+}
+
+.cv-profile-heading h2 {
+    margin: 0.5rem 0;
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.cv-profile-heading p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.82rem;
+}
+
+.cv-source-note {
+    margin: 0 0 2rem;
+    color: var(--muted);
+    font-size: 0.82rem;
+}
+
+.cv-json-sections {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem 2rem;
+}
+
+.cv-json-section {
+    min-width: 0;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+}
+
+.cv-json-section h2 {
+    margin: 0 0 1.1rem;
+    font-family: var(--serif);
+    font-size: 1.65rem;
+    font-weight: 500;
+    line-height: 1.15;
+}
+
+.cv-json-section h3 {
+    margin: 1.1rem 0 0.45rem;
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.cv-group + .cv-group {
+    margin-top: 1rem;
+}
+
+.cv-record-list,
+.cv-facts {
+    display: grid;
+    gap: 0.9rem;
+}
+
+.cv-record {
+    padding: 0.85rem 0;
+    border-top: 1px solid var(--line);
+}
+
+.cv-record > :last-child,
+.cv-facts > :last-child {
+    margin-bottom: 0;
+}
+
+.cv-record-meta {
+    margin: 0 0 0.45rem;
+    color: var(--green);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.cv-fact,
+.cv-json-section li {
+    margin: 0 0 0.45rem;
+    color: var(--muted);
+    font-size: 0.82rem;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+}
+
+.cv-fact strong {
+    color: var(--ink);
+    font-weight: 600;
+}
+
+.cv-json-section ul {
+    margin: 0.35rem 0 0;
+    padding-left: 1.2rem;
+}
+
+.cv-json-section a {
+    color: var(--green);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+.cv-json-source {
+    margin-top: 2rem;
+    border-top: 1px solid var(--line);
+}
+
+.cv-json-source summary {
+    padding: 1rem 0;
+    color: var(--green);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.cv-json-source pre {
+    max-height: 36rem;
+    overflow: auto;
+    padding: 1rem;
+    background: var(--surface);
+    color: var(--ink);
+    font-size: 0.72rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
 .news-main {
     min-height: calc(100vh - 168px);
     padding-block: 4.5rem 5rem;
@@ -791,36 +951,22 @@ p {
 }
 
 .home-page {
-    --paper: #f5f8fc;
-    --surface: #fff;
-    --ink: #1c3150;
-    --muted: #647995;
-    --line: rgb(40 83 145 / 14%);
-    --green: #176cf0;
-    --orange: #ffb343;
     min-height: 100vh;
-    background: linear-gradient(180deg, #e6f0ff 0%, #edf4ff 49%, #f7f9fc 78%, #f7f9fc 100%);
 }
 
 .home-page .site-header {
     position: relative;
     z-index: 3;
     width: min(1130px, calc(100% - 52px));
-    border-bottom: 0;
-}
-
-.home-page .wordmark {
-    color: #243f67;
-    font-style: italic;
 }
 
 .home-page .primary-nav {
-    color: #176cf0;
+    color: #46534e;
 }
 
 .home-page .primary-nav a:hover,
 .home-page .social-links a:hover {
-    color: #094eb9;
+    color: var(--green);
 }
 
 .nav-dropdown {
@@ -835,8 +981,8 @@ p {
     display: grid;
     min-width: 13rem;
     padding-block: 0.4rem;
-    background: rgb(255 255 255 / 94%);
-    box-shadow: 0 12px 24px rgb(22 46 79 / 16%);
+    background: var(--surface);
+    box-shadow: 0 12px 24px rgb(28 41 38 / 16%);
     opacity: 0;
     pointer-events: none;
     transform: translateY(0.35rem);
@@ -857,15 +1003,7 @@ p {
 }
 
 .nav-dropdown-menu a:hover {
-    background: #edf4ff;
-}
-
-.home-page .language-nav {
-    color: #526b8b;
-}
-
-.home-page .language-nav a[aria-current="page"] {
-    color: #176cf0;
+    background: var(--paper);
 }
 
 .home-page main {
@@ -893,40 +1031,40 @@ p {
     position: absolute;
     top: -15rem;
     left: -20%;
-    color: #315b91;
+    color: var(--green);
 }
 
 .home-page .hero h1 {
     width: 58%;
     margin-block: 0;
-    color: #1268ee;
-    font-family: var(--sans);
-    font-weight: 700;
+    color: var(--ink);
+    font-family: var(--serif);
+    font-weight: 500;
     text-align: center;
 }
 
 .home-page .hero h1 span {
-    color: #76aef8;
+    color: var(--green);
 }
 
 .home-page .hero-lede {
     max-width: 470px;
     margin: 3rem 0 0 17%;
-    color: #4384e7;
-    font-family: var(--sans);
+    color: var(--ink);
+    font-family: var(--serif);
     font-weight: 500;
 }
 
 .home-page .hero-intro {
     max-width: 470px;
     margin: 1.5rem 0 0 17%;
-    color: #607995;
+    color: var(--muted);
 }
 
 .home-page .hero-copy .text-link {
     margin: 1.25rem 0 0 17%;
-    border-color: rgb(23 108 240 / 34%);
-    color: #176cf0;
+    border-color: #9aaca3;
+    color: var(--green);
 }
 
 .home-page .portrait-wrap {
@@ -951,12 +1089,6 @@ p {
 
 .home-page .portrait-frame img {
     mask-image: linear-gradient(to bottom, #000 68%, transparent 100%);
-}
-
-.home-page .work-section,
-.home-page .profile-section,
-.home-page .closing-note {
-    border-color: var(--line);
 }
 
 @keyframes rise-in {
@@ -1037,6 +1169,20 @@ p {
     .cv-grid {
         grid-template-columns: 1fr;
         gap: 1.2rem;
+    }
+
+    .cv-json-sections {
+        grid-template-columns: 1fr;
+        gap: 1.7rem;
+    }
+
+    .cv-profile-header {
+        grid-template-columns: minmax(0, 0.7fr) 1fr;
+        gap: 1.2rem;
+    }
+
+    .cv-photo-placeholder {
+        min-height: 220px;
     }
 
     .news-main {
@@ -1157,6 +1303,14 @@ p {
     .profile-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+
+    .cv-profile-header {
+        grid-template-columns: 1fr;
+    }
+
+    .cv-photo-placeholder {
+        min-height: 250px;
     }
 
     .news-item {
