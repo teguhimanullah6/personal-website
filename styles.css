@@ -60,7 +60,7 @@ a:focus-visible {
 .site-header,
 main,
 .site-footer {
-    width: min(1120px, calc(100% - 96px));
+    width: min(1440px, calc(100% - 52px));
     margin-inline: auto;
 }
 
@@ -213,7 +213,7 @@ p {
 .portrait-wrap {
     position: relative;
     width: 100%;
-    max-width: 390px;
+    max-width: 488px;
     justify-self: end;
     animation: rise-in 800ms 100ms ease-out both;
 }
@@ -265,7 +265,7 @@ p {
 
 .portrait-index {
     position: absolute;
-    right: -2.35rem;
+    right: -1.25rem;
     bottom: 5.3rem;
     color: var(--muted);
     font-size: 0.64rem;
@@ -363,6 +363,82 @@ p {
     margin: 0;
     color: var(--muted);
     font-size: 0.85rem;
+}
+
+.cv-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.cv-card {
+    display: block;
+    min-height: 100%;
+    padding: 1.2rem 0 1.5rem;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.cv-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--green);
+}
+
+.cv-card h2,
+.cv-detail h2 {
+    margin: 0.75rem 0 0.55rem;
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    font-weight: 500;
+    line-height: 1.15;
+}
+
+.cv-card > p:last-child,
+.cv-detail p,
+.cv-detail li {
+    color: var(--muted);
+    font-size: 0.88rem;
+}
+
+.cv-card > p:last-child {
+    margin: 0;
+}
+
+.cv-detail {
+    max-width: 780px;
+}
+
+.cv-detail section + section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+}
+
+.cv-detail h2 {
+    font-size: 1.55rem;
+}
+
+.cv-detail p:last-child,
+.cv-detail ul:last-child {
+    margin-bottom: 0;
+}
+
+.cv-detail ul {
+    padding-left: 1.25rem;
+}
+
+.cv-back-link {
+    display: inline-flex;
+    margin-top: 2.5rem;
+    color: var(--green);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.cv-back-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
 }
 
 .news-main {
@@ -787,6 +863,11 @@ p {
         grid-template-columns: 1fr;
         gap: 2.2rem;
         padding-block: 3.5rem 4rem;
+    }
+
+    .cv-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
     }
 
     .news-main {
